@@ -6,17 +6,19 @@ import Rodape from "componentes/rodape";
 import TemplatePadrao from "componentes/TemplatePadrao";
 import Post from "componentes/Post";
 import NaoEncontrada from "paginas/NaoEncontrada";
+import ScrollToTop from "componentes/ScrollToTop";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Menu />
       <Routes>
         <Route path="/" element={<TemplatePadrao />}>
           <Route index element={<Inicio />} />
           <Route path="sobrenos" element={<SobreNos />} />
-          <Route path="posts/:id" element={<Post />} />
         </Route>
+        <Route path="posts/:id/*" element={<Post />} />
         {/* 
         Na rota "/", a estrutura a ser renderizada é:
         <TemplatePadrao>
